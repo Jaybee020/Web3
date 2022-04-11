@@ -1,5 +1,6 @@
 //code to be loaded into browser(you cant use hardhat as it is client side)
 import { ethers } from "ethers";//import directly from ethers library
+import Counter from "../artifacts/contracts/counter.sol/Counter.json"
 
 //get eth in the broser
 function getEth(){
@@ -27,17 +28,40 @@ async function requestAccounts() {
 
 async function run(){
     if(!await hasAccounts() && !await requestAccounts()){//asking metamask for accounts in it and requesting the account
-        throw new Error("Please install algosigner")
+        throw new Error("Please install metamask")
     }
+
+    console.log("hello")
     const contract=new ethers.Contract(
-        "0x5fbdb2315678afecb367f032d93f642f64180aa3",//account address youwant to call the contract from
-        [
-            " function hello() public pure returns (string memory)"  //interface of what we want to grab
-        ],
-        new ethers.providers.Web3Provider(getEth())//web 3 provider api
+        "0xdc64a140aa3e981100a9beca4e685f962f0cf6c9",//account address youwant to call the contract from
+        Counter.abi,//using the contracts abi
+        new ethers.providers.Web3Provider(getEth()).getSigner()//web 3 provider api and adding the signer
     )
+
  
-    document.body.innerHTML=await contract.hello() //calling the function in the smart contract
+    contract.on(contract.filters.counterInc(),function(count){
+        setcounter(count)
+    })
+
+    const text=document.createElement("div")
+    // console.log("hello")
+    text.style.borderColor="red"
+    const button=document.createElement("button")
+    //@ts-ignore
+    async function setcounter(count?) {
+        text.innerHTML=count||await contract.getCounter()//calling the value of counter from the contract
+    }
+
+    setcounter()
+    button.innerText="increment"
+    button.onclick=async function(){
+        const tx=await contract.count()//calling the contract incrementer function
+        await tx.wait()
+    }
+
+    document.body.appendChild(text)
+    document.body.appendChild(button)
+    
 }
 
 run()
