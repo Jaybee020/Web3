@@ -107,6 +107,78 @@
       "artifacts": [
         "console"
       ]
+    },
+    "/Users/jaybee/Web3/contracts/hero.sol": {
+      "lastModificationDate": 1649726740760,
+      "contentHash": "971f5d9a675e50ce7c3a820f374738b3",
+      "sourceName": "contracts/hero.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.16 <0.9.0"
+      ],
+      "artifacts": [
+        "Hero"
+      ]
+    },
+    "/Users/jaybee/Web3/contracts/Testhero.sol": {
+      "lastModificationDate": 1649725658599,
+      "contentHash": "e3b69127f31ad0df4a329c6cbcac369a",
+      "sourceName": "contracts/Testhero.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./hero.sol"
+      ],
+      "versionPragmas": [
+        ">=0.4.16 <0.9.0"
+      ],
+      "artifacts": [
+        "TestHero"
+      ]
     }
   }
 }
