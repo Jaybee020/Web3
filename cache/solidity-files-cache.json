@@ -179,6 +179,44 @@
       "artifacts": [
         "TestHero"
       ]
+    },
+    "/Users/jaybee/Web3/contracts/fallback.sol": {
+      "lastModificationDate": 1649767963339,
+      "contentHash": "8cc236c7f37220e96599a336eae3d101",
+      "sourceName": "contracts/fallback.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        ">=0.4.16 <0.9.0"
+      ],
+      "artifacts": [
+        "Fallback",
+        "IFallback"
+      ]
     }
   }
 }
