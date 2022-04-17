@@ -10,10 +10,10 @@ describe("Should say hello",async function (){
         //call functions to test
 
         //deploying the contract
-        const HelloWorld=await ethers.getContractFactory("HelloWorld")//getting your compiled contract via hardhat
-        const hello=await HelloWorld.deploy() //deploy it to the network
-        await hello.deployed()//making sure it is confirmed on the blockchain
+        const HelloWorld=await ethers.getContractFactory("HelloWorld");//getting your compiled contract via hardhat
+        const hello=await HelloWorld.deploy() ;//deploy it to the network
+        await hello.deployed();//making sure it is confirmed on the blockchain
 
-        expect(await hello.hello()).to.equal("Hello World")
+        expect(await hello.hello()).to.equal("Hello World");//calling the function you specified in the solidity contract
     })
 })
